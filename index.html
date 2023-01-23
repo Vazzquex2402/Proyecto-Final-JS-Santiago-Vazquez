@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+
+        <h1 style="text-align: center;">Claculadora de Hipotecas</h1>
+        <hr>
+    
+
+    <table id="table1">
+        <tr id="tr1">
+          <th>Precio de compra</th>
+          <th>Ahorro Aportado</th>
+          <th>Ciudad</th>
+          <th>Años de la Hipoteca</th>
+        </tr>
+        <tr>
+          <td><input id="precioCasa" type="text" name="Precio de la Casa"></td>
+          <td><input id="pagoInicial" type="text" value=""></td>
+          <td><input id="ciudad" type="text"></td>
+          <td><input id="anios" type="text"></td>
+   
+
+          </td>  
+        </tr>
+        <td></td>
+        <td style="font-size: small; color: rgb(56, 56, 56);">*10% del precio de la propiedad o más</td>
+        <td></td>
+        <td style="font-size: small; color: rgb(56, 56, 56);">*Maximo 30 años</td>
+      </table>
+
+
+      <table id="table2">
+        <tr >
+            <th class="thclass">Tipo de Hipoteca</th>
+            <th class="thclass">Tasa de Interes</th>
+            <th class="thclass">Monto total de la Hipoteca</th>
+            <th class="thclass">Pago Mensual</th>
+        </tr>
+
+
+      </table>  
+
+        <div>
+            <button onclick="calcularPrecio()">Calcular Hipoteca</button>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
+        <script src="main.js"></script>
+
+    <br>
+</body>
+</html>

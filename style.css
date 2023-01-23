@@ -1,0 +1,59 @@
+h1{
+    background-color: rgb(87, 179, 196);
+    padding: 1%;
+}
+
+body{
+    background-color:azure;
+    font-family: Vegur, 'PT Sans', Verdana, sans-serif;
+    position: relative;
+}
+
+#table1{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 80px;
+}
+
+
+input, select {
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#tr1 {
+    font-size: 150%;
+}
+
+#table2{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.thclass{
+    width: 350px;
+}
+
+div{
+        text-align: center;
+}
+
+button{
+    padding: 20px;
+    margin: 200px;
+    width: 400px;
+    font-size: large;
+    color: beige;
+    background-color: rgb(82, 82, 253);
+    border-radius: 10px;
+    border-color: white;
+
+
+}
+
+#table2 td{
+    padding: 40px;
+}
