@@ -18,7 +18,38 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
         },
     })
     .then((response) => response.json())
-    .then((data) => console.log(data))
+
+    function calcularHipoteca(){
+
+        return new Promise((resolve, reject) =>{
+            let timerInterval
+            Swal.fire({
+              title: 'Cargando Hipoteca',
+              html: '<b></b> milliseconds.',
+              timer: 2000,
+              timerProgressBar: true,
+              didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                  b.textContent = Swal.getTimerLeft()
+                }, 100)
+              },
+              willClose: () => {
+                clearInterval(timerInterval)
+              }
+            })
+
+            setTimeout(() => {
+                resolve(calcularPrecio())
+            }, 3000);
+        })
+    }
+
+    async function getHipoteca(){
+        let miHipoteca = await  calcularHipoteca();
+    }
+
 
 function calcularPrecio(){
 
@@ -74,9 +105,7 @@ function calcularPrecio(){
               })
         }
         else if(!isNaN(preciPropiedad)){
-            error = false
-            console.log("Correcto Precio");
-        }
+            error = false        }
         }
 
         function calAhorro(){
@@ -104,16 +133,23 @@ function calcularPrecio(){
                 text: 'Ahorro no suficiente!',
               })
         }
-        else if(!isNaN(pagoInicial)){
+        else if(pagoInicial > preciPropiedad){
+            error = true
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Ahorro mayor a precio de la propiedad!',
+              })
+
+        }
+                else if(!isNaN(pagoInicial)){
             error = false
-            console.log("Correcto Ahorro");
         }
         }
 
         function calCiudad(){
         if(ciudad == 0){
             error = true
-            console.log("Ciudad esta vacio");
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -130,7 +166,6 @@ function calcularPrecio(){
         }
         else if(isNaN(ciudad)){
             error = false
-            console.log("Ciudad correcto!");
         }
         }
 
@@ -168,7 +203,6 @@ function calcularPrecio(){
         }
         else if(anios < 30 && anios > 5){
             error = false
-            console.log("Años correcto");
         }
         }
 
@@ -183,15 +217,7 @@ function calcularPrecio(){
                         }
                     }
                 }
-                else if(error == true)
-                    console.log("Si funciona");
-                }
-            
 
-
-     
-
-        //if(!isNaN(preciPropiedad) && !isNaN(pagoInicial) && isNaN(ciudad) && !isNaN(anios) && anios < 30 && pagoInicial < preciPropiedad && pagoInicial < preciPropiedad*0.10){
 
         if (error == false){
         let cuota = preciPropiedad*intereses / (12 * anios);
@@ -225,5 +251,6 @@ function calcularPrecio(){
         i++
        }
     }
+  }
 }
 
