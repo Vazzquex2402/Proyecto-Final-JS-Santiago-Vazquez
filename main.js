@@ -79,6 +79,14 @@ function calcularPrecio() {
 
         const guardarLocal = (NombreCiudad, ciudad) => { localStorage.setItem(NombreCiudad, ciudad) };
 
+        const procesarDatos = dato => {
+          if (dato.id === 3) {
+            guardarLocal(dato.Ciudad, JSON.stringify(dato));
+          }
+          return dato;
+        };
+        const datosProcesados = datos.map(procesarDatos);
+        
         for (const ciudad of datos) {
             guardarLocal(ciudad.id, JSON.stringify(ciudad))
         }
